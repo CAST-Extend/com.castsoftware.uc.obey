@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<metaModel file_level="client" file_no="ZZZ">
+    <type name="XXX_YYY" rid="0">
+        <description>My Custom Object name for XXX that clients will see</description>
+        <inheritedCategory name="UAObject"/>
+    </type>
+</metaModel>

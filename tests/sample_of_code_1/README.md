@@ -1,0 +1,1 @@
+Place here the folder and files that constitute the sample on which you want to test your extension.

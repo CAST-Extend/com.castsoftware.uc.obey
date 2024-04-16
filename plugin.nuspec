@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>com.castsoftware.uc.XXX</id>
+        <version>1.0.0</version>
+        <title>PICK_AN_EXPLICIT_TITLE</title>
+        <description>This extension provides support for the XXX framework in Java applications.</description>
+        <authors>User Community</authors>
+        <owners>YOUR_TRIGRAM</owners>
+        <licenseUrl>https://extend.castsoftware.com/api/package/license/product</licenseUrl>
+        <projectUrl>TBD on Extend GitHub</projectUrl>
+        <iconUrl>TBD on Extend GitHub</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <releaseNotes>TBD on Extend GitHub</releaseNotes>
+        <tags>Framework PickAFew Java JEE Injection techno:JEE CAIP8.3</tags>
+        <dependencies>
+            <dependency id="CAIP" version="8.3.0" />
+            <dependency id="com.castsoftware.internal.platform" version="0.0.8" />
+        </dependencies>
+    </metadata>
+</package>
