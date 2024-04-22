@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<languagePattern id="OBEY">
+    <escape><![CDATA[\]]></escape>
+
+
+    <comment>
+        <begin><![CDATA[==]]></begin>
+        <end><![CDATA[\r\n]]></end>
+        <multiline>true</multiline>
+    </comment>
+
+    <!-- This breaks the UA...
+        <comment>
+            <begin><![CDATA[{]]></begin>
+            <end><![CDATA[}]]></end>
+            <multiline>true</multiline>
+        </comment>
+    -->
+
+    <!--<comment>
+        <begin><![CDATA[%]]></begin>
+        <end><![CDATA[\r\n]]></end>
+        <multiline>false</multiline>
+    </comment>-->
+    <!--
+        <string>
+            <begin><![CDATA["]]></begin>
+            <end><![CDATA["]]></end>
+            <escape><![CDATA[\]]></escape>
+        </string>
+
+        <string>
+            <begin><![CDATA[']]></begin>
+            <end><![CDATA[']]></end>
+        </string>
+    -->
+    <keyword>CLEAR</keyword>
+    <keyword>ASSIGN</keyword>
+    <keyword>RUN</keyword>
+    <keyword>PARAM</keyword>
+
+
+</languagePattern>
