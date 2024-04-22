@@ -4,6 +4,7 @@
         <description>OBEY</description>
         <attribute name="extensions" stringValue="*.obey"/>
         <inheritedCategory name="UniversalLanguage"/>
+		<inheritedCategory name="CsvLanguage"/>
     </category>
 
     <category name="OBEY Module" rid="1">
@@ -37,8 +38,14 @@
         <inheritedCategory name="OBEY Module"/>
 	</type>
 
-    <type name="OBEY_FILE" rid="10">
+    <type name="OBEY_FILE" rid="100">
         <description>OBEY File</description>
-        <inheritedCategory name="UAObject"/>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="OBEY" />
+        <inheritedCategory name="OBEY Artifacts" />
+        <tree parent="EnlightenOBEY" category="EnlightenTree" />
+
+		<tree parent="sourceFile" category="amtParentship"/>
     </type>
 </metaModel>
