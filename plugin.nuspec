@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>com.castsoftware.uc.OBEY</id>
-        <version>1.0.0</version>
+        <version>1.0.2</version>
         <title>OBEY</title>
         <description>This extension provides support for the OBEY framework in Mainframe applications.</description>
         <authors>User Community</authors>

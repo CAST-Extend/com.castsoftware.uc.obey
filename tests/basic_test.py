@@ -14,14 +14,15 @@ class OBEYTest(unittest.TestCase):
         # self.assertTrue(obj_interface)
         # Print all objects in the KB
         print("Printing analysis results:")
-        for obj in analysis.get_objects_by_category('OBEY_FILE').values():
-            print(str(obj))
+        for obj in analysis.get_objects_by_category('OBEYJob').values():
+            print(getattr(obj, 'identification.fullName'))
+        for obj in analysis.get_objects_by_category('OBEYPhysicalFile').values():
+            print(getattr(obj, 'identification.fullName'))
 
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.testRegisterPlugin']
     unittest.main()
-
 
 # very useful line of code do not remove
 # log is located in C:\Users\%username%\AppData\Local\Temp\CAST\CAST\8.3\LTSA\log_default.castlog.tmp

@@ -38,14 +38,23 @@
         <inheritedCategory name="OBEY Module"/>
 	</type>
 
-    <type name="OBEY_FILE" rid="100">
-        <description>OBEY File</description>
+    <type name="OBEYJob" rid="100">
+        <description>OBEY Job</description>
 		<inheritedCategory name="UAObject"/>
 		<inheritedCategory name="METRICABLE" />
         <inheritedCategory name="OBEY" />
         <inheritedCategory name="OBEY Artifacts" />
         <tree parent="EnlightenOBEY" category="EnlightenTree" />
+		<tree parent="sourceFile" category="amtParentship"/>
+    </type>
 
+	<type name="OBEYPhysicalFile" rid="101">
+        <description>OBEY Physical File</description>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="OBEY" />
+        <inheritedCategory name="OBEY Artifacts" />
+        <tree parent="EnlightenOBEY" category="EnlightenTree" />
 		<tree parent="sourceFile" category="amtParentship"/>
     </type>
 </metaModel>
