@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<metaModel file_level="client" file_no="252">
+    <category name="OBEY" rid="0">
+		<description>OBEY</description>
+		<attribute name="extensions" stringValue="*.obey"/>
+		<inheritedCategory name="UniversalLanguage"/>
+	</category>
+    <type name="OBEY_FILE" rid="1">
+        <description>OBEY File</description>
+        <inheritedCategory name="UAObject"/>
+    </type>
+</metaModel>
