@@ -13,8 +13,9 @@ class OBEYTest(unittest.TestCase):
         analysis = run_analyzer_level(['sample_of_code_1'])
         # self.assertTrue(obj_interface)
         # Print all objects in the KB
-        for obj in analysis.get_objects_by_category('OBEY_FILE'):
-            print(obj.get_name())
+        print("Printing analysis results:")
+        for obj in analysis.get_objects_by_category('OBEY_FILE').values():
+            print(str(obj))
 
 
 if __name__ == "__main__":

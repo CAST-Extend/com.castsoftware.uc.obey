@@ -36,7 +36,7 @@ class OBEYAnalyzerLevel(cast.analysers.ua.Extension):
         log.info('Starting file: ' + file.get_path())
         print('Starting file: ' + file.get_path())
         # If the extension is not .OBEY, we skip the file
-        if not file.get_path().endswith('.OBEY'):
+        if not file.get_path().endswith('.obey'):
             return
 
         # Create a new object of type 'OBEY_FILE in the KB
@@ -44,6 +44,7 @@ class OBEYAnalyzerLevel(cast.analysers.ua.Extension):
         # Set the name of the object to the name of the file without the extension
         obeyObj.set_name(file.get_name())
         obeyObj.set_type('OBEY_FILE')
+        obeyObj.set_parent(file)
         obeyObj.save()
 
     def _my_internal_utility_method(self, member):
