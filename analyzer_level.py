@@ -30,6 +30,9 @@ class OBEYAnalyzerLevel(cast.analysers.ua.Extension):
         log.info('Ending UA Analysis for Mainframe OBEYs')
 
     def start_file(self, file):
+        """
+        @type file: cast.analysers.File
+        """
         log.info('Starting file: ' + file.get_path())
         print('Starting file: ' + file.get_path())
         # If the extension is not .OBEY, we skip the file
