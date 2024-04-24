@@ -10,12 +10,12 @@ http://cast-projects.github.io/Extension-SDK/doc/index.html
 
 ## How to use this template
 
-### OBEY
+### Obey
 
-First, `OBEY` needs to be replaced with the name of the language or framework you are creating support for. It appears in 4 places:
-- In the folder name of `Configuration/Languages/OBEY/`
-- In the filename of `Configuration/Languages/OBEY/OBEYMetaModel.xml`
-- In the content of the file `Configuration/Languages/OBEY/OBEYMetaModel.xml`
+First, `Obey` needs to be replaced with the name of the language or framework you are creating support for. It appears in 4 places:
+- In the folder name of `Configuration/Languages/Obey/`
+- In the filename of `Configuration/Languages/Obey/ObeyMetaModel.xml`
+- In the content of the file `Configuration/Languages/Obey/ObeyMetaModel.xml`
 - In the content of the file `plugin.nuspec`
 
 We also recommend you use this identifier when naming your methods in `analyzer_level.py` and/or `application_level.py`, although this is not required.
@@ -40,7 +40,7 @@ If I am writing an extension for the Google framework Guice, I might choose `Gui
 ### YYY
 
 Second, `YYY` needs to be replaced with the name of the custom object you are creating support for. It appears in 2 places:
-- In the content of the file `Configuration/Languages/OBEY/OBEYMetaModel.xml`
+- In the content of the file `Configuration/Languages/Obey/ObeyMetaModel.xml`
 - In the content of the files `analyzer_level.py` and/or `application_level.py` depending on the step at which you create the object
 
 **Example**
@@ -56,7 +56,7 @@ If I am writing an extension for the Google framework Guice, my object type migh
 ### 252
 
 Third, `252` needs to be replaced with the correct file_no you have reserved for your extension. For more info on this requirement, consult https://doc.castsoftware.com/display/EXTEND/Managing+ID+ranges+for+custom+extensions. It appears in 1 place:
-- In the content of the file `Configuration/Languages/OBEY/OBEYMetaModel.xml`
+- In the content of the file `Configuration/Languages/Obey/ObeyMetaModel.xml`
 
 **Example**
 

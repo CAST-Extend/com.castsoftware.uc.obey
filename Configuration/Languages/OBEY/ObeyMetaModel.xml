@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<metaModel file_level="client" file_no="252">
+    <category name="Obey" rid="0">
+        <description>Obey</description>
+        <attribute name="extensions" stringValue="*.obey"/>
+        <inheritedCategory name="UniversalLanguage"/>
+		<inheritedCategory name="CsvLanguage"/>
+    </category>
+
+    <category name="Obey Module" rid="1">
+		<description>Obey</description>
+		<inheritedCategory name="APM Client Modules"/>
+	</category>
+
+	<category name="Obey Artifacts" rid="2">
+		<description>Obey Artifacts</description>
+		<inheritedCategory name="APM Client Language Artifacts"/>
+	</category>
+
+	<type name="Obey_SUBSET" rid="3">
+		<description>Obey Subset</description>
+		<inheritedCategory name="PROJECT_SUBSET"/>
+		<inheritedCategory name="Obey"/>
+		<inheritedCategory name="Obey Module"/>
+	</type>
+
+
+	<!-- Obey Enlighten group -->
+	<type name="EnlightenObey" rid="4">
+		<description>Obey</description>
+		<tree parent="EnlightenUniversalObjects" category="EnlightenTree"/>
+	</type>
+
+	<type name="ObeyProject" rid="5">
+		<description>Obey Project</description>
+		<inheritedCategory name="UAProject"/>
+		<inheritedCategory name="Obey"/>
+        <inheritedCategory name="Obey Module"/>
+	</type>
+
+    <type name="ObeyJob" rid="100">
+        <description>Obey Job</description>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Obey" />
+        <inheritedCategory name="Obey Artifacts" />
+        <tree parent="EnlightenObey" category="EnlightenTree" />
+		<tree parent="sourceFile" category="amtParentship"/>
+    </type>
+
+	<type name="ObeyPhysicalFile" rid="101">
+        <description>Obey Physical File</description>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Obey" />
+        <inheritedCategory name="Obey Artifacts" />
+        <tree parent="EnlightenObey" category="EnlightenTree" />
+		<tree parent="sourceFile" category="amtParentship"/>
+    </type>
+</metaModel>

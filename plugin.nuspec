@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>com.castsoftware.uc.OBEY</id>
-        <version>1.0.2</version>
-        <title>OBEY</title>
-        <description>This extension provides support for the OBEY framework in Mainframe applications.</description>
+        <id>com.castsoftware.uc.obey</id>
+        <version>1.0.8</version>
+        <title>Obey</title>
+        <description>This extension provides support for Obey files.</description>
         <authors>User Community</authors>
         <owners>TAL / KFU</owners>
         <licenseUrl>https://extend.castsoftware.com/api/package/license/product</licenseUrl>
@@ -12,7 +12,7 @@
         <iconUrl>https://extend.castsoftware.com/api/package/license/product</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <releaseNotes>TBD on Extend GitHub</releaseNotes>
-        <tags>Framework PickAFew Java JEE Injection techno:JEE CAIP8.3</tags>
+        <tags>Obey</tags>
         <dependencies>
             <dependency id="CAIP" version="8.3.0" />
             <dependency id="com.castsoftware.internal.platform" version="0.0.8" />
