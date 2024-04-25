@@ -67,7 +67,7 @@ class ObeyApplicationLevel(cast.application.ApplicationLevelExtension):
                     COBOLProgramObj = cobol_program
                     break
             if obeyJobObj is not None and COBOLProgramObj is not None:
-                l = create_link('useLink', obeyJobObj, COBOLProgramObj)
+                l = create_link('callLink', obeyJobObj, COBOLProgramObj)
                 self._log('Link created between ' + obey_job_name + ' and ' + cobol_program_name)
 
             if len(data) > 2:

@@ -12,8 +12,7 @@ from application_level import ObeyApplicationLevel
 
 class ObeyTest(unittest.TestCase):
 
-    @staticmethod
-    def test_01():
+    def test_01(self):
         analysis = run_analyzer_level(['sample_of_code_1'])
         # Print all objects in the KB
         print("Printing analysis results:")
@@ -22,17 +21,14 @@ class ObeyTest(unittest.TestCase):
         for obj in analysis.get_objects_by_category('ObeyPhysicalFile').values():
             print(getattr(obj, 'identification.fullName'))
 
-    @staticmethod
-    def test_02():
+    def test_02(self):
         run_analyzer_level(['sample_of_code_1'])
 
-    @staticmethod
-    def test_application_init():
+    def test_application_init(self):
         engine = create_postgres_engine(port=2284)
         run(kb_name='obeys_local', application_name='OBeys', engine=engine, event='end_application')
 
-    @staticmethod
-    def test_obey_on_KB_already_created():
+    def test_obey_on_KB_already_created(self):
         engine = create_postgres_engine(port=2284)
         kb = KnowledgeBase('obeys_local', engine)
         application = kb.get_application(name='Obeys')
@@ -47,9 +43,7 @@ class ObeyTest(unittest.TestCase):
         for obey_job in obey_jobs:
             print('Obey Job: ' + obey_job.get_name())
             print(obey_job.get_positions())
-
-    @staticmethod
-    def test_obey_on_KB_already_created_test():
+    def test_obey_on_KB_already_created_test(self):
         engine = create_postgres_engine(port=2284)
         kb = KnowledgeBase('obeys_local', engine)
         application = kb.get_application(name='OBeys')

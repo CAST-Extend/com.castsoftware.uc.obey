@@ -10,7 +10,7 @@ import cast.analysers.ua
 from cast.analysers import log, CustomObject, Bookmark
 
 
-class ObeyPhysicalFile():
+class ObeyPhysicalFile:
     def __init__(self, name, parent):
         self.name = name
         self.parent = parent
@@ -43,6 +43,7 @@ class ObeyAnalyzerLevel(cast.analysers.ua.Extension):
         self.obeyPhysicalFiles = set()
         self.dataDict = {}
 
+
     def start_analysis(self):
         log.info('Starting UA Analysis for Obey files...')
 
@@ -74,8 +75,6 @@ class ObeyAnalyzerLevel(cast.analysers.ua.Extension):
 
         # Open the file and read the content
         # Store the number of lines in the file
-        file_line_count = 0
-        column_count_last_line = 0
         with open(file.get_path(), 'r') as f:
             file_lines = f.readlines()
             file_line_count = len(file_lines)
