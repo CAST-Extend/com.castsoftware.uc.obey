@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>com.castsoftware.uc.obey</id>
-        <version>1.0.12</version>
+        <version>1.0.18</version>
         <title>Obey</title>
         <description>This extension provides support for Obey files.</description>
         <authors>User Community</authors>
