@@ -46,7 +46,7 @@ class ObeyTest(unittest.TestCase):
     def test_obey_on_KB_already_created_test(self):
         engine = create_postgres_engine(port=2284)
         kb = KnowledgeBase('obeys_local', engine)
-        application = kb.get_application(name='OBeys')
+        application = kb.get_application(name='Obeys')
         extension = ObeyApplicationLevel()
         extension.end_application(application)
 
