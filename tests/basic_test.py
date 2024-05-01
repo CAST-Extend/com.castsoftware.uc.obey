@@ -5,6 +5,7 @@ Created on 2023-04-20
 """
 import unittest
 import cast.analysers.test
+from cast.application.internal import set_current_application
 from cast.application.test import run
 from cast.application import KnowledgeBase, create_postgres_engine
 from application_level import ObeyApplicationLevel
@@ -45,8 +46,8 @@ class ObeyTest(unittest.TestCase):
             print(obey_job.get_positions())
     def test_obey_on_KB_already_created_test(self):
         engine = create_postgres_engine(port=2284)
-        kb = KnowledgeBase('obeys_local', engine)
-        application = kb.get_application(name='Obeys')
+        kb = KnowledgeBase('filelinkphysical2_local', engine)
+        application = kb.get_application(name='filelinkphysical2')
         extension = ObeyApplicationLevel()
         extension.end_application(application)
 
