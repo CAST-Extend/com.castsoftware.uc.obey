@@ -81,8 +81,10 @@ class ObeyApplicationLevel(cast.application.ApplicationLevelExtension):
         self._log('Reading file com.castsoftware.uc.obey.txt to retrieve intermediary findings')
         for line in exchange_file:
             data = line.split(';')
-            # remove last element which is '\n'
-            data = data[:-1]
+
+            if data[-1] == '\n':
+                data = data[:-1]
+            self._log('Data: ' + str(data))
             obey_job_name = data[0]
             cobol_program_name = data[1]
 
@@ -106,16 +108,20 @@ class ObeyApplicationLevel(cast.application.ApplicationLevelExtension):
                 if COBOLProgramObj is not None:
                     COBOLProgramObj.load_children() # load children to access them
                     childrens = COBOLProgramObj.get_children()
-                    links = application.links().has_callee(cobol_file_links)
-                    for link in links:
-                        for child in childrens:
-                            # if the child of the COBOLProgram is the caller of the link, so if the COBOL Paragraph calling the Cobol
-                            # Data File Link is a child of the COBOL Program then we add the Cobol Data File Link to the Cobol Program
-                            if child.id == link.get_caller().id:
-                                self._log('Caller: ' + link.get_caller().get_name() + ' Callee: ' + link.get_callee().get_name())
-                                dataFileLink.append(link.get_callee())
-
-                self._log('DataFileLink: ' + str(dataFileLink))
+                    self._log('Childrens: ' + str(childrens) + ' for ' + cobol_program_name)
+                    for child in childrens:
+                        if child.get_type() == 'CAST_COBOL_SavedFileDescription':
+                            dataFileLink.append(child)
+                        if child.get_type() == 'CAST_COBOL_SavedDivision':
+                            self._log('Data Division found for ' + cobol_program_name)
+                            child.load_children()
+                            dataDivisonChildrens = child.get_children()
+                            for dataDivisonChild in dataDivisonChildrens:
+                                if dataDivisonChild.get_type() == 'CAST_COBOL_SavedFileDescription':
+                                    dataFileLink.append(dataDivisonChild)
+                else:
+                    self._log('COBOL Program not found for ' + cobol_program_name)
+                self._log('DataFileLink: ' + str(dataFileLink) + ' for ' + cobol_program_name + ' and ' + obey_job_name)
 
                 for i in range(2, len(data), 2):
                     cobol_file_link_name = data[i]
@@ -130,20 +136,19 @@ class ObeyApplicationLevel(cast.application.ApplicationLevelExtension):
                     # link between the ObeyJob and the ObeyPhysicalFile
                     if obeyJobObj is not None and ObeyPhysicalFileObj is not None:
                         create_link('useLink', obeyJobObj, ObeyPhysicalFileObj)
-                        self._log('Link created between ' + obey_job_name + ' and ' + obey_physical_file_name)
-                        print('Link created between ' + obey_job_name + ' and ' + obey_physical_file_name)
+                        self._log('Link created between (ObeyJob->ObeyPhysicalFile) ' + obey_job_name + ' and ' + obey_physical_file_name)
 
                     # link between the COBOLDataFileLink and the ObeyPhysicalFile
                     if len(dataFileLink) > 0 and ObeyPhysicalFileObj is not None:
                         for cobol_file_link in dataFileLink:
                             if cobol_file_link_name == cobol_file_link.get_name():
                                 create_link('useLink', cobol_file_link, ObeyPhysicalFileObj)
-                                self._log('Link created between ' + cobol_file_link.get_name() + ' and ' + obey_physical_file_name)
-                                print('Link created between ' + cobol_file_link.get_name() + ' and ' + obey_physical_file_name)
+                                self._log('Link created between (COBOLDataFileLink -> ObeyPhysicalFile) ' + cobol_file_link.get_name() + ' and ' + obey_physical_file_name)
                                 break
                             else:
-                                self._log('No link created between ' + cobol_file_link_name + ' and ' + obey_physical_file_name + ' because ' + cobol_file_link_name + 'is different from ' + cobol_file_link.get_name())
-
+                                self._log('No link created between (COBOLDataFileLink -> ObeyPhysicalFile)' + cobol_file_link_name + ' and ' + obey_physical_file_name + ' because ' + cobol_file_link_name + ' is different from ' + cobol_file_link.get_name())
+            else:
+                self._log('Len < 2 for data: ' + str(data))
         exchange_file.close()
         self._log('Ending Application level Analysis for Obey files')
 
