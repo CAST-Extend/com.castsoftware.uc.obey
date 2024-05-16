@@ -31,6 +31,7 @@ It has been tested with CAST AIP 8.3.54 / 8.3.56.
 2. Obey files should be renamed with the .obey extension. 
 This is required for the extension to work, as it uses the file extension to identify Obey files.
 3. Create an analysis unit for the "Obey" extension.
+4. If you want to get Transactions and Data Call Graphs, you need to create a new Transaction entry point for the **Obey Job** object and a new Data entity rule for the **Obey Physical File** object.
 
 ## What results can you expect?
 
