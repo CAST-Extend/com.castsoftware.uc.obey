@@ -45,12 +45,16 @@ Additional objects and links will be created in the knowledge base and will be a
 ### Links
 
 - **Obey Job -> Mainframe Unknown Program**: Represents the call from an Obey Job to a Cobol program that is not recognized.
+
 ![obey_job_to_mainframe_unknown_program_link](images/obey_job_to_mainframe_unknown_program_link.png)
 - **Obey Job -> Obey Physical File**: Represents the dependency from an Obey Job to a physical file. This dependency exists when an Obey Job assigns a physical file to a Cobol File Link and then calls a Cobol Program using this Cobol File Link.
+
 ![obey_job_to_obey_physical_file_link](images/obey_job_to_obey_physical_file_link.png)
 - **Obey Job -> Cobol Program**: Represents the call from an Obey Job to a Cobol Program.
+
 ![obey_job_to_cobol_program_link](images/obey_job_to_cobol_program_link.png)
 - **Cobol File Link -> Obey Physical File**: Represents the dependency from a Cobol File Link to a physical file. This dependency exists when a Cobol Program is being called from an Obey Job and the Obey Job assigns a physical file to a Cobol File Link being used by this particular Cobol Program.
+
 ![cobol_file_link_to_obey_physical_file_link](images/cobol_file_link_to_obey_physical_file_link.png)
 
 
@@ -85,7 +89,9 @@ If we summarize:
 
 - Obey Physical Files may show up in a transaction while they actually should not, because of the way CAST Imaging builds transactions and because of the way we link Cobol File Links to Obey Physical Files. Those Obey Physical File are easy to recognize though, they will not show any link with the Obey Job object entrypoint of the transaction.
 ![transaction_unrelated_obey_physical_file_limitation](images/transaction_unrelated_obey_physical_file_limitation.png)
+
 In this example, the Obey file "$STL02.P0249D6.F0249N4E" should not appear in the transaction, as it is not linked to the Obey Job object entrypoint of the transaction. But since it is linked to a Cobol File Link which is part of the transaction and is an endpoint, it is included in the transaction.
+
 - **Mainframe Unknown Program -> Obey Physical File**: this link will not be created, this will result in Obey Physical Files only being linked to Obey Jobs.
 - **Unknown Cobol File Link**: All the Cobol File Links being used inside the Obey Jobs needs to be used inside the Cobol Program being called, if not, we will just ignore the Cobol File Link, example:
   - Obey Job A calls Cobol Program B using Cobol File Link C, and Obey Job A assigns Obey Physical File D to Cobol File Link C
