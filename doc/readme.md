@@ -155,7 +155,7 @@ If we summarize:
 - Obey Physical Files may show up in a transaction while they actually should not, because of the way CAST Imaging builds transactions and because of the way we link Cobol File Links to Obey Physical Files. Those Obey Physical File are easy to recognize though, they will not show any link with the Obey Job object entrypoint of the transaction.
 ![transaction_unrelated_obey_physical_file_limitation](images/transaction_unrelated_obey_physical_file_limitation.png)
 
-In this example, the Obey file "$STL02.P0249D6.F0249N4E" should not appear in the transaction, as it is not linked to the Obey Job object entrypoint of the transaction. But since it is linked to a Cobol File Link which is part of the transaction and is an endpoint, it is included in the transaction.
+In this example, the Obey file "$GH.DDG8.DASQX" should not appear in the transaction, as it is not linked to the Obey Job object entrypoint of the transaction. But since it is linked to a Cobol File Link which is part of the transaction and is an endpoint, it is included in the transaction.
 
 - **Mainframe Unknown Program -> Obey Physical File**: this link will not be created, this will result in Obey Physical Files only being linked to Obey Jobs.
 - **Unknown Cobol File Link**: All the Cobol File Links being used inside the Obey Jobs needs to be used inside the Cobol Program being called, if not, we will just ignore the Cobol File Link, example:
