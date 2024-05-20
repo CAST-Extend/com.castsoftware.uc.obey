@@ -1,31 +1,75 @@
-# Obey
+Welcome to the com.castsoftware.uc.obey wiki!
 
-## Introduction
+>Warning: The Extension described in this document is delivered as-is. This Extension is made available by CAST Labs Community and governed by Open Source License. Please consider all necessary steps to validate and to test the Extension in your environment before using it in production.        
+The extension is published under GNU LGPL v3 open source license
 
+***
+
+# Table of content
+- [Introduction](#introduction)
+- [In what situation should you install this extension?](#situation)
+- [CAST AIP versions compatibility](#aipcompatibility)
+- [Supported DBMS servers](#supporteddbms)
+- [Configuration instructions](#configuration)
+- [Operation instructions](#Operation)
+- [What results can you expect?](#expect)
+   - [List of custom objects](#objects)
+   - [List of links between custom objects](#links)
+   - [Sample graphical view in CAST Imaging](#graphical)
+   - [List of quality rules](#rules)
+- [Known issues](#KnownIssues)
+- [Approach used to support Obey](#approach)
+- [Limitations and potential enhancements](#limitations)
+- [Release Notes](#rn)
+
+<a name="introduction"></a>
+# Introduction 
 This extension provides support for Obey files in HP NonStop Cobol applications.
 
 Obey files are similar to JCL Jobs in the mainframe world. They are used to define the flow of a Cobol application.
 Analyzing them can help to understand the end to end flow of a Cobol application.
 
-## In what situations should you install this extension?
+Extension is Compatible with AIP Console.
 
+
+<a name="situation"></a>
+# In what situation should you install this extension?
 Whenever you need to analyze applications using Obey files in HP NonStop Cobol 
-applications, and you want to get transactions / data call graph and representation of the actual physical files used to store data on disk, 
-rather than just Cobol File Links.
+applications, if you want to get transactions / data call graph and representation of the actual physical files used to store data on disk, 
+rather than just Cobol File Links, then you should use this extension.
 
 Use cases covered:
 
 - Knowledge Discovery / Blueprinting
 - Transaction / Data Call Graph
 - Identification of physical files used to store data on disk
+<a name="aipcompatibility"></a>
+# CAST AIP versions compatibility
 
-## CAST version compatibility
+This extension is compatible with all AIP versions from 8.3.0, and will be also in future versions.
+It relies on UA and end_application to create links between Cobol and wfl artifacts.  
+Furthermore, it has been tested with:    
+- CAST AIP 8.3.54
+- CAST AIP 8.3.56
 
-This extension leverages the CAST extension SDK, and as such is compatible with CAST AIP releases starting from 8.3.0.
+<a name="supporteddbms"></a>
+# Supported DBMS servers
 
-It has been tested with CAST AIP 8.3.54 / 8.3.56.
+This extension is compatible with the following DBMS servers (hosting the Analysis Service):
 
-## Configuration instructions
+| CAST AIP release       |                                      CSS3                                      |                                      CSS4                                      |                                  PG on Linux                                   |
+|------------------------|:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
+| All supported releases | ![Supported](https://github.com/CAST-Extend/resourceALT/blob/master/check.png) | ![Supported](https://github.com/CAST-Extend/resourceALT/blob/master/check.png) | ![Supported](https://github.com/CAST-Extend/resourceALT/blob/master/check.png) | 
+
+
+<a name="configuration"></a>
+# Configuration instructions
+Package the Obey Source files with .obey file extension.
+
+Once registered, this extension is integrated to the normal process of CAST analysis.
+
+<a name="operation"></a>
+# Operation instructions
 
 1. Install the extension manually, since the extension will not be automatically installed after a fast scan.
 2. Obey files should be renamed with the .obey extension. 
@@ -33,17 +77,20 @@ This is required for the extension to work, as it uses the file extension to ide
 3. Create an analysis unit for the "Obey" extension.
 4. If you want to get Transactions and Data Call Graphs, you need to create a new Transaction entry point for the **Obey Job** object and a new Data entity rule for the **Obey Physical File** object.
 
-## What results can you expect?
+<a name="expect"></a>
+# What results can you expect?
 
 Additional objects and links will be created in the knowledge base and will be available in CAST Imaging.
 
-### Objects
+<a name="objects"></a>
+##  List of custom objects
 
 - **Obey Job**: Represents the call graph entrypoint of the application, similar to JCL Jobs in the mainframe world.
 - **Mainframe Unknown Program** : Represents a Cobol program that is called from an Obey Job but is not recognized. Indicates that the program is not part of the scan scope.
 - **Obey Physical File**: Represents the physical files used to store data on disk.
 
-### Links
+<a name="links"></a>
+## List of links between custom objects
 
 - **Obey Job -> Mainframe Unknown Program**: Represents the call from an Obey Job to a Cobol program that is not recognized.
 
@@ -59,10 +106,26 @@ Additional objects and links will be created in the knowledge base and will be a
 ![cobol_file_link_to_obey_physical_file_link](images/cobol_file_link_to_obey_physical_file_link.png)
 
 
+<a name="graphical"></a>
+## Sample graphical view in CAST Imaging
+
 | Behavior without the extension                                         | Behavior with the extension                                               |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------|
 | ![objects with no links](images/results_without_extension_imaging.png) | ![same objects but with links](images/results_with_extension_imaging.png) |
 
+
+<a name="rules"></a>
+## List of quality rules
+
+- None
+
+<a name="knownIssues"></a>
+# Known issues
+
+- None
+
+
+<a name="approach"></a>
 ## Approach used to support Obey
 
 ![schematicdoc](images/schematicdoc.png)
@@ -86,7 +149,8 @@ If we summarize:
       - One link between Cobol File Link C and Obey Physical File D
       
 
-## Known limitations
+<a name="limitations"></a>
+# Limitations and potential enhancements
 
 - Obey Physical Files may show up in a transaction while they actually should not, because of the way CAST Imaging builds transactions and because of the way we link Cobol File Links to Obey Physical Files. Those Obey Physical File are easy to recognize though, they will not show any link with the Obey Job object entrypoint of the transaction.
 ![transaction_unrelated_obey_physical_file_limitation](images/transaction_unrelated_obey_physical_file_limitation.png)
@@ -99,3 +163,9 @@ In this example, the Obey file "$STL02.P0249D6.F0249N4E" should not appear in th
     - If Cobol Program B is not recognized, then we will never find Cobol File Link C, in this case we could create an **Unknown Cobol File Link** but this is not something we are doing.
     - If Cobol Program B is recognized but does not use a Cobol File Link named C, in this case we could create an **Unknown Cobol File Link** but this is not something we are doing.
   - Creating those **Unknown Cobol File Link** could be possible technically. It would also allow us to create link between **Unknown Cobol File Link** and **Obey Physical File**, **Mainframe Unknown Program** or **Cobol Program**. 
+
+<a name="rn"></a>
+# Release Notes
+
+## Version 1.0.50 Release Notes
+* Initial version created by Cast Labs Community.
