@@ -2,14 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>com.castsoftware.uc.obey</id>
-        <version>1.0.52</version>
+        <version>1.0.53</version>
         <title>Obey</title>
         <description>This extension provides support for Obey files.</description>
         <authors>User Community</authors>
         <owners>TAL / KFU</owners>
         <licenseUrl>https://extend.castsoftware.com/api/package/license/product</licenseUrl>
         <projectUrl>https://extend.castsoftware.com/api/package/license/product</projectUrl>
-        <iconUrl>https://extend.castsoftware.com/api/package/license/product</iconUrl>
+        <iconUrl>https://raw.githubusercontent.com/CAST-Extend/com.castsoftware.uc.obey/main/res/OBEYJob.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <releaseNotes>https://github.com/CAST-Extend/com.castsoftware.uc.obey/blob/main/doc/readme.md</releaseNotes>
         <tags>Obey</tags>
