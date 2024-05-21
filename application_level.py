@@ -18,12 +18,13 @@ class ObeyApplicationLevel(cast.application.ApplicationLevelExtension):
         cobol_programs = application.objects().has_type('CAST_COBOL_SavedProgram')
         self._log('Opening file com.castsoftware.uc.obey.txt to retrieve intermediary findings')
         exchange_file = self.get_intermediate_file('com.castsoftware.uc.obey.txt')
-        # exchange_file = open('com.castsoftware.uc.obey.txt', 'r')
         self._log('Reading file com.castsoftware.uc.obey.txt to retrieve intermediary findings')
         for line in exchange_file:
             data = line.split(';')
-            # remove last element which is '\n'
-            data = data[:-1]
+
+            if data[-1] == '\n':
+                data = data[:-1]
+
             obey_job_name = data[0]
             cobol_program_name = data[1]
 
@@ -69,22 +70,18 @@ class ObeyApplicationLevel(cast.application.ApplicationLevelExtension):
         self._log('Starting Application level Analysis for Obey files...')
 
         cobol_programs = application.objects().has_type('CAST_COBOL_SavedProgram')
-        cobol_file_links = application.objects().has_type('CAST_COBOL_SavedFileDescription')
-        for cobol_file_link in cobol_file_links:
-            self._log('COBOL File Link: ' + cobol_file_link.get_name())
         obey_physical_files = application.objects().has_type('ObeyPhysicalFile')
         obey_jobs = application.objects().has_type('ObeyJob')
 
         self._log('Opening file com.castsoftware.uc.obey.txt to retrieve intermediary findings')
         exchange_file = self.get_intermediate_file('com.castsoftware.uc.obey.txt')
-        # exchange_file = open('com.castsoftware.uc.obey.txt', 'r')
         self._log('Reading file com.castsoftware.uc.obey.txt to retrieve intermediary findings')
         for line in exchange_file:
             data = line.split(';')
 
             if data[-1] == '\n':
                 data = data[:-1]
-            self._log('Data: ' + str(data))
+
             obey_job_name = data[0]
             cobol_program_name = data[1]
 
@@ -148,10 +145,9 @@ class ObeyApplicationLevel(cast.application.ApplicationLevelExtension):
                             else:
                                 self._log('No link created between (COBOLDataFileLink -> ObeyPhysicalFile)' + cobol_file_link_name + ' and ' + obey_physical_file_name + ' because ' + cobol_file_link_name + ' is different from ' + cobol_file_link.get_name())
             else:
-                self._log('Len < 2 for data: ' + str(data))
+                self._log('No more data to process for ' + obey_job_name + ' and ' + cobol_program_name)
         exchange_file.close()
         self._log('Ending Application level Analysis for Obey files')
-
 
 def _my_internal_utility_method(self):
     pass

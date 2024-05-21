@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="32px"
+   height="32px"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="JCL Job.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="25.40625"
+     inkscape:cx="15.98032"
+     inkscape:cy="16"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <title
+     id="title1">ProcessRed</title>
+  <g
+     id="ProcessRed"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd"
+     transform="matrix(0.71464286,0,0,0.709,4.5707144,-0.139)">
+    <g
+       id="object"
+       transform="translate(2,2)"
+       fill="#ce041c">
+      <g
+         id="Group">
+        <path
+           d="m 28,16.627333 v -5.254666 l -4.012167,-0.6685 C 23.823333,10.208333 23.625,9.7288333 23.394,9.268 l 2.363667,-3.3086667 -3.717,-3.717 -3.304,2.3601667 c -0.462,-0.2345 -0.943834,-0.4351667 -1.442,-0.5985 L 16.627333,0 H 11.372667 L 10.705333,4.004 C 10.207167,4.1685 9.7253333,4.368 9.2633333,4.6036667 L 5.9581667,2.2423333 2.2423333,5.9581667 4.606,9.268 C 4.375,9.7276667 4.1766667,10.208333 4.0133333,10.704167 L 0,11.372667 v 5.254666 l 4.0226667,0.670834 c 0.1633333,0.491166 0.3616666,0.966 0.5915,1.423333 l -2.3718334,3.320333 3.717,3.717 3.3261667,-2.3765 c 0.4538333,0.2275 0.926333,0.424667 1.415167,0.585667 l 0.672,4.032 h 5.254666 l 0.672,-4.033167 c 0.488834,-0.161 0.961334,-0.358166 1.415167,-0.585666 l 3.327333,2.3765 3.717,-3.717 L 23.387,18.720333 C 23.616833,18.263 23.815167,17.788167 23.9785,17.297 Z m -14,2.039334 c -2.577167,0 -4.6666667,-2.0895 -4.6666667,-4.666667 0,-2.577167 2.0894997,-4.6666667 4.6666667,-4.6666667 2.577167,0 4.666667,2.0894997 4.666667,4.6666667 0,2.577167 -2.0895,4.666667 -4.666667,4.666667 z"
+           id="Shape" />
+      </g>
+    </g>
+  </g>
+  <text
+     xml:space="preserve"
+     style="fill:#000000"
+     x="7.0761719"
+     y="31.094711"
+     id="text1"><tspan
+       sodipodi:role="line"
+       id="tspan1"
+       x="7.0761719"
+       y="31.094711">OB</tspan></text>
+</svg>

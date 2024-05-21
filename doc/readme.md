@@ -163,9 +163,10 @@ In this example, the Obey file "$GH.DDG8.DASQX" should not appear in the transac
     - If Cobol Program B is not recognized, then we will never find Cobol File Link C, in this case we could create an **Unknown Cobol File Link** but this is not something we are doing.
     - If Cobol Program B is recognized but does not use a Cobol File Link named C, in this case we could create an **Unknown Cobol File Link** but this is not something we are doing.
   - Creating those **Unknown Cobol File Link** could be possible technically. It would also allow us to create link between **Unknown Cobol File Link** and **Obey Physical File**, **Mainframe Unknown Program** or **Cobol Program**. 
+- ReGex being used to identify statements within the .obey files may not be perfect and may identify false positives within comments
 
 <a name="rn"></a>
 # Release Notes
 
-## Version 1.0.51 Release Notes
+## Version 1.0.52 Release Notes
 * Initial version created by Cast Labs Community.

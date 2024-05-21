@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>com.castsoftware.uc.obey</id>
-        <version>1.0.51</version>
+        <version>1.0.52</version>
         <title>Obey</title>
         <description>This extension provides support for Obey files.</description>
         <authors>User Community</authors>
@@ -11,7 +11,7 @@
         <projectUrl>https://extend.castsoftware.com/api/package/license/product</projectUrl>
         <iconUrl>https://extend.castsoftware.com/api/package/license/product</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <releaseNotes>TBD on Extend GitHub</releaseNotes>
+        <releaseNotes>https://github.com/CAST-Extend/com.castsoftware.uc.obey/blob/main/doc/readme.md</releaseNotes>
         <tags>Obey</tags>
         <dependencies>
             <dependency id="CAIP" version="8.3.0" />

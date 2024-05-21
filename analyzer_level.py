@@ -37,12 +37,9 @@ class ObeyPhysicalFile:
 class ObeyAnalyzerLevel(cast.analysers.ua.Extension):
 
     def __init__(self):
-        # Example use of the intermediate file to transfer content from analyzer level to application level.
-        # It requires declaration.
         self.exchange_file = None
         self.obeyPhysicalFiles = set()
         self.dataDict = {}
-
 
     def start_analysis(self):
         log.info('Starting UA Analysis for Obey files...')
@@ -67,10 +64,9 @@ class ObeyAnalyzerLevel(cast.analysers.ua.Extension):
         """
         @type file: cast.analysers.File
         """
-        # If the extension is not .obey or .obey, we skip the file
+        # If the extension is not .obey or .OBEY, we skip the file
         if not file.get_path().lower().endswith('.obey'):
             log.info('Skipping file: ' + file.get_path())
-            print('Skipping file: ' + file.get_path())
             return
 
         # Open the file and read the content
@@ -80,10 +76,8 @@ class ObeyAnalyzerLevel(cast.analysers.ua.Extension):
             file_line_count = len(file_lines)
             if file_line_count == 0:
                 return  # Empty file
-            print('File line -1: ' + str(file_lines))
             file_last_column_length = len(file_lines[-1])
 
-        # Create a new object of type 'Obey_FILE in the KB
         obeyJob = CustomObject()
         # Set the name of the object to the name of the file without the extension
         obeyJobName = file.get_name().split('.')[0]
@@ -101,13 +95,11 @@ class ObeyAnalyzerLevel(cast.analysers.ua.Extension):
         with open(file.get_path(), 'r') as f:
             for line in f:
 
-                #TODO: Modify ReGex
                 clearResults = re.search(r"CLEAR  ALL", line)
                 if clearResults:
                     # Clear the currentFileTuples list
                     currentFileTuples.clear()
 
-                # TODO: Modify RegEx to handle comments within the code
                 assignResults = re.search(r"ASSIGN +([A-Z\-0-9]+), +(.*)", line)
                 if assignResults and assignResults.group(1) and assignResults.group(2):
                     currentFileTuples.append((assignResults.group(1), assignResults.group(2)))
@@ -115,7 +107,6 @@ class ObeyAnalyzerLevel(cast.analysers.ua.Extension):
                     obeyPhysicalFile = ObeyPhysicalFile(assignResults.group(2), file)
                     self.obeyPhysicalFiles.add(obeyPhysicalFile)
 
-                # TODO: Modify RegEx to handle comments within the code
                 runResults = re.search(r"\s+RUN\s+(?:\S+\.)*(\S+)", line)
                 if runResults and runResults.group(1):
                     # If dataDict does not contain the name of the file, add it
