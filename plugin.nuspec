@@ -2,20 +2,23 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>com.castsoftware.uc.obey</id>
-        <version>1.0.53</version>
-        <title>Obey</title>
-        <description>This extension provides support for Obey files.</description>
+        <version>1.0.54</version>
+        <title>Technology Extension for Obey</title>
+        <description>This extension provides support for Obey source code found in Tandem NonStop applications. It supports transaction identification and Application Discovery.</description>
         <authors>User Community</authors>
         <owners>TAL / KFU</owners>
         <licenseUrl>https://extend.castsoftware.com/api/package/license/product</licenseUrl>
-        <projectUrl>https://extend.castsoftware.com/api/package/license/product</projectUrl>
+        <projectUrl>https://github.com/CAST-Extend/com.castsoftware.uc.obey/blob/main/doc/readme.md</projectUrl>
         <iconUrl>https://raw.githubusercontent.com/CAST-Extend/com.castsoftware.uc.obey/main/res/OBEYJob.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <releaseNotes>https://github.com/CAST-Extend/com.castsoftware.uc.obey/blob/main/doc/readme.md</releaseNotes>
+        <releaseNotes>https://github.com/CAST-Extend/com.castsoftware.uc.obey/blob/main/doc/readme.md#rn</releaseNotes>
         <tags>Obey</tags>
         <dependencies>
             <dependency id="CAIP" version="8.3.0" />
             <dependency id="com.castsoftware.internal.platform" version="0.0.8" />
         </dependencies>
     </metadata>
+    <files>
+        <file src="**" exclude="tests\**;res\**;.git\**;.idea\**;interpreter\**;_rels\**;__pycache__\**;lib\**;LICENSE.md" />
+    </files>
 </package>

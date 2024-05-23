@@ -168,5 +168,5 @@ In this example, the Obey file "$GH.DDG8.DASQX" should not appear in the transac
 <a name="rn"></a>
 # Release Notes
 
-## Version 1.0.53 Release Notes
+## Version 1.0.54 Release Notes
 * Initial version created by Cast Labs Community.
